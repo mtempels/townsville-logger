@@ -19,7 +19,6 @@ var util = require('util');
 // Log file to use
 var LOG_FILE = '/tmp/townsville_logger_test.log';
 
-
 /**
  * Helper function to remove existing log files
  * (incl sequence 1-20)
@@ -45,7 +44,12 @@ function removeLogFiles(done) {
     function(file, cb) {
       fs.exists(file, function(exists) {
         if (exists) {
-          fs.unlink(file);
+          fs.unlink(file, (err) => {
+            if (err) {
+              assert(err);
+            }
+          }
+          );
         }
         cb();
       });
@@ -56,7 +60,7 @@ function removeLogFiles(done) {
 }
 
 
-describe('The cs logger', function() {
+describe('The townsville logger', function() {
 
   // Ditch log file before
   beforeEach(removeLogFiles);
@@ -82,7 +86,7 @@ describe('The cs logger', function() {
         }
       }, function(err) {
         if ((err instanceof Error) &&
-            /Log system is not initialized/.test(err) ) {
+          /Log system is not initialized/.test(err) ) {
           return true;
         }
         return false;
@@ -169,14 +173,14 @@ describe('The cs logger', function() {
           assert.equal(
             data,
             'fatal: [mylog.mymodule] fatal\n' +
-              'error: [mylog.mymodule] error\n' +
-              'warn: [mylog.mymodule] warn\n' +
-              'info: [mylog.mymodule] info\n' +
-              'debug: [mylog.mymodule] debug\n' +
-              'trace: [mylog.mymodule] trace\n' +
-              'debug: [mylog.mymodule] aap test noot 24 mies\n' +
-              'debug: [mylog.mymodule] test 123 append [some]\n' +
-              'debug: [mylog.myother] check\n',
+            'error: [mylog.mymodule] error\n' +
+            'warn: [mylog.mymodule] warn\n' +
+            'info: [mylog.mymodule] info\n' +
+            'debug: [mylog.mymodule] debug\n' +
+            'trace: [mylog.mymodule] trace\n' +
+            'debug: [mylog.mymodule] aap test noot 24 mies\n' +
+            'debug: [mylog.mymodule] test 123 append [some]\n' +
+            'debug: [mylog.myother] check\n',
             'log file not as expected');
           done();
         });
@@ -427,7 +431,7 @@ describe('The cs logger', function() {
           var str = data.toString('ascii');
           // Check with regex
           assert(str.match(/\d{8}-\d{6}[.]\d{3} - info: \[mymodule\] test123\n$/g),
-                 'log file not as expected');
+            'log file not as expected');
           done();
         });
       },
@@ -464,11 +468,11 @@ describe('The cs logger', function() {
         } else {
           clearInterval(interval);
           var files = [
-            '/tmp/cs_logger_test.log',
-            '/tmp/cs_logger_test1.log',
-            '/tmp/cs_logger_test2.log',
-            '/tmp/cs_logger_test3.log',
-            '/tmp/cs_logger_test4.log',
+            '/tmp/townsville_logger_test.log',
+            '/tmp/townsville_logger_test1.log',
+            '/tmp/townsville_logger_test2.log',
+            '/tmp/townsville_logger_test3.log',
+            '/tmp/townsville_logger_test4.log',
           ];
 
           async.forEach(
