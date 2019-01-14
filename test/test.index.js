@@ -1,8 +1,8 @@
 /**
  * @fileOverview Test main api
  * @name test.index.js
- * @author Cor Kalis <c.kalis@crcvalue.nl>
- * @license Copyright Connection Systems BV
+ * @author Matthijs Tempels <matthijs@townsville.nl>
+ * @license Copyright Townsville.nl
  */
 
 "use strict";
@@ -17,7 +17,7 @@ var util = require('util');
 
 
 // Log file to use
-var LOG_FILE = '/tmp/cs_logger_test.log';
+var LOG_FILE = '/tmp/townsville_logger_test.log';
 
 
 /**
