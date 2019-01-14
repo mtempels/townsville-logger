@@ -9,10 +9,10 @@ If you want to use syslog over udp, note that this is typically not enabled
 by default on Ubuntu. (alter /etc/rsyslog.conf and reload)
 
 ### Install
-npm install mtempels/cs-logging
+npm install mtempels/townsville-logging
 
 ### Uninstall
-npm remove cs-logging
+npm remove townsville-logging
 
 ### Usage
 
