@@ -1,0 +1,8 @@
+*~
+*.bak
+*.log
+\#*#
+.#*
+node_modules
+*.komodoproject
+tmp/*

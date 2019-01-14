@@ -1,0 +1,35 @@
+{
+  "name": "townsville-logger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Townsville Logger",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "moment": "^2.23.0",
+    "winston": "2.3.0",
+    "winston-syslog": "1.2.5"
+  },
+  "devDependencies": {
+    "async": "2.1.4",
+    "mocha": "3.2.0",
+    "sinon": "1.17.6"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mtempels/townsville-logger.git"
+  },
+  "keywords": [
+    "logger",
+    "winston"
+  ],
+  "author": {
+    "name": "Townsville.nl"
+  },
+  "license": "Copyright Townsville.nl"
+}
