@@ -1,4 +1,4 @@
-Connection Systems logger library (based on Winston)
+Townsville logger library (based on Winston)
 ===
 
 API for logging, hiding the actual implementation of Winston behind a generic
@@ -9,7 +9,7 @@ If you want to use syslog over udp, note that this is typically not enabled
 by default on Ubuntu. (alter /etc/rsyslog.conf and reload)
 
 ### Install
-npm install ConnectionSystems/cs-logging
+npm install mtempels/cs-logging
 
 ### Uninstall
 npm remove cs-logging
@@ -62,7 +62,7 @@ Currently supported: console, file and syslog logging.
 Typical usage
 
 ```javascript
-var logger = require('cs-logger');
+var logger = require('townsville-logger');
 
 // Init the underlying log system (only once)
 // If you omit settings, you will get a console logger
@@ -87,4 +87,4 @@ Either run:
  * npm test
 
 ### License
-Copyright Connection Systems
+Copyright Townsville.nl
