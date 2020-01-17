@@ -9,10 +9,10 @@ If you want to use syslog over udp, note that this is typically not enabled
 by default on Ubuntu. (alter /etc/rsyslog.conf and reload)
 
 ### Install
-npm install mtempels/townsville-logging
+npm install mtempels/townsville-logger
 
 ### Uninstall
-npm remove townsville-logging
+npm remove townsville-logger
 
 ### Usage
 
@@ -72,7 +72,7 @@ logger.init();
 var log = logger.createInstance('mymodule');
 
 // Log something, optionally with formatting
-log.debug('aap %d, mies %s', 123, 'noot');
+log.debug('foo %d, bar %s', 123, 'yay');
 
 // Check log level first, if constructing the log is expensive
 if (log.isTrace()) {
